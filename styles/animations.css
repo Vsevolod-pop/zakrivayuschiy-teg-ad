@@ -14,42 +14,8 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 
-.theme-menu__button:disabled::before {
-    content: '▶';
-    position: absolute;
-    animation: path 0.5s ease-in-out infinite alternate;
-    top: 0;
-    left: 0;
-  }
-  
-  .theme-menu__button:focus-visible {
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-  }
-  
-  .theme-menu__button::after {
-    display: block;
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    transition: width .3s;
-  }
-  
-  .theme-menu__button:focus-visible::after {
-    width: 100%;
-  }
-  
-  .theme-menu__button:hover, .theme-menu__button:disabled {
-    position: relative;
-    opacity: 0.6;
-    transition: opacity 300ms ease;
-  }
-  
-  .theme-menu__button:disabled {
-    pointer-events: none;
-  }
-  
+  /* Сердце */
+ 
   .like-icon {
     fill: var(--bg-color);
     inline-size: 39px;
@@ -61,7 +27,6 @@
     transform-origin: center center;
   }
   
-  /* Сердце */
   .like-icon .main-body {
     fill: var(--bg-color);
     transition: fill .3s;
@@ -81,7 +46,6 @@
     fill: var(--heart-color);
     transition: fill .3s 3ms;
   }
-  
   
   /* Плюс */
   .like-icon .core {
@@ -146,16 +110,5 @@
   
     to {
       opacity: 1;
-    }
-  }
-  
-  
-  @keyframes path {
-    from {
-      left: 8px;
-    }
-  
-    to {
-      left: 4px;
     }
   }

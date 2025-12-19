@@ -14,15 +14,6 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-
-@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff) {
-  .card__image-label {
-    text-stroke: 1px var(--stroke-color);
-    -webkit-text-stroke: 1px var(--stroke-color);
-    text-shadow: none;
-  }
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -60,20 +51,15 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0;
 
   border: 2px solid var(--border-color);
   background-color: var(--bg-color);
 }
 
 .content {
-  margin: 0 auto;
+  margin: 100px auto 0;
   max-inline-size: 696px;
-  margin-block-start: 100px;
-}
-
-.theme-menu__item {
-  margin-block-end: 9px;
 }
 
 .header__title {
@@ -98,10 +84,7 @@
   font-family: var(--main-font), sans-serif;
   border: 2px solid var(--border-color);
   font-size: 18px;
-  font-weight: var(--header-weight);
-  line-height: normal;
-  font-style: normal;
-  padding: 5px 22px 5px 8px;
+  padding: 3px 24px 3px 10px;
   font-variation-settings: 'wght' var(--header-weight);
 }
 
@@ -158,8 +141,11 @@
   opacity: 0.5;
   mix-blend-mode: hard-light;
   -webkit-text-stroke: 1px var(--stroke-color);
-  text-shadow: 0 var(--stroke-color), 0 1px var(--stroke-color),
-    0 -1px var(--stroke-color), 1px 0 var(--stroke-color);
+  text-shadow: 
+    0 var(--stroke-color), 
+    0 1px var(--stroke-color),
+    0 -1px var(--stroke-color), 
+    1px 0 var(--stroke-color);
 }
 
 .card__content {
@@ -174,12 +160,8 @@
   justify-content: flex-end;
 }
 
-.card__icon-button:focus,
 .card__icon-button:focus-visible {
   outline: none;
-}
-
-.card__icon-button:focus-visible {
   border-color: var(--accent-color);
 }
 
@@ -188,7 +170,6 @@
   color: var(--accent-color);
   font-size: 18px;
   line-height: 21px;
-  font-weight: var(--text-weight);
   font-variation-settings: 'wght' var(--text-weight);
 }
 
@@ -204,17 +185,13 @@
   border: 2px solid var(--border-color);
   padding: 9px 17px;
   background-color: var(--bg-color);
-  justify-content: center;
-  align-items: center;
   block-size: 38px;
   inline-size: 130px;
   position: relative;
 }
 
 .card__like-button:focus-visible,
-.card__like-button:focus,
-.button-remember:focus-visible,
-.button-remember:focus {
+.button-remember:focus-visible {
   outline: none;
 }
 
@@ -225,13 +202,9 @@
 .card__like-button::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
+  inset: 0; 
   background-color: var(--accent-color);
   transition: width 0.3s ease;
-  inline-size: 100%;
-  block-size: 100%;
   width: 0;
 }
 
@@ -239,23 +212,12 @@
   cursor: pointer;
 }
 
-.button__text {
+.button__text, .button__text-rembemer {
   font-size: 14px;
   font-family: var(--accent-font), sans-serif;
   color: var(--mix-blend-color);
   font-weight: 400;
-  font-style: normal;
   mix-blend-mode: difference;
-  line-height: 12.6px;
-}
-
-.button__text-rembemer {
-  font-size: 14px;
-  font-family: var(--accent-font), sans-serif;
-  color: var(--mix-blend-color);
-  mix-blend-mode: difference;
-  font-weight: 400;
-  font-style: normal;
   line-height: 12.6px;
 }
 
@@ -305,21 +267,16 @@
 .button-remember::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
+  inset: 0; 
   background-color: var(--accent-color);
   transition: width 0.3s ease;
-  inline-size: 100%;
-  block-size: 100%;
   width: 0;
+  display: block;
 }
 
 .theme-menu__button {
   font-family: var(--accent-font), sans-serif;
   border: none;
-  line-height: normal;
-  font-style: normal;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -329,8 +286,6 @@
 }
 
 .theme-menu__button:focus-visible,
-.theme-menu__button:focus,
-.button-save:focus,
 .button-save:focus-visible {
   outline: none;
 }
@@ -349,8 +304,7 @@
   background-color: var(--bg-color);
   color: var(--accent-color);
   font-family: var(--accent-font), sans-serif;
-  font-size: 14px;
-  font-style: normal;
+  font-size: 14px; 
   max-inline-size: 357px;
   font-weight: 400;
   text-transform: uppercase;
@@ -406,16 +360,13 @@
 
 .button-save::before {
   content: '';
-  top: 0;
-  left: 0;
-  display: block;
-  transition: width 0.3s ease-in-out;
-  block-size: 100%;
-  inline-size: 100%;
-  width: 0;
   position: absolute;
+  inset: 0; 
   background-color: var(--accent-color);
-}
+  transition: width 0.3s ease;
+  width: 0;
+  display: block;
+ }
 
 .button-save:hover::before {
   width: 100%;
